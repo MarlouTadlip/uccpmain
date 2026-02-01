@@ -145,35 +145,42 @@ const Page = () => {
       <HeroParallax products={products} />
 
       {/* SBOS Infinite Moving Cards */}
-      <section ref={sbosRef} className="py-8 bg-neutral-50 dark:bg-neutral-900">
-        <div className="max-w-9xl mx-auto px-4">
-          <motion.div 
-            className="text-center mb-8"
+      <section
+        ref={sbosRef}
+        className="py-32 px-4 bg-neutral-50 dark:bg-neutral-900"
+      >
+        <div className="max-w-9xl mx-auto relative">
+          <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={sbosInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
             transition={{ duration: 1.0, ease: [0.4, 0, 0.2, 1] }}
+            className="text-center mb-20"
           >
-            <motion.h2 
-              className="text-3xl md:text-4xl font-serif font-bold text-neutral-900 dark:text-white mb-4"
+            <div className="inline-flex items-center px-4 py-2 bg-neutral-100 dark:bg-neutral-800 rounded-full mb-6">
+              <div className="w-2 h-2 bg-neutral-500 rounded-full mr-3 animate-pulse" />
+              <span className="text-neutral-700 dark:text-neutral-300 font-semibold text-sm uppercase tracking-wider">
+                Student Body Organizations
+              </span>
+            </div>
+            <motion.h2
+              className="text-6xl md:text-7xl font-serif font-bold text-neutral-900 dark:text-white mb-8 leading-tight"
               initial={{ opacity: 0, y: 20 }}
-              animate={sbosInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              animate={
+                sbosInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+              }
               transition={{ duration: 0.8, delay: 0.2, ease: [0.4, 0, 0.2, 1] }}
             >
-              Our Student Body Organizations
+              Student Body Organizations
             </motion.h2>
-            <motion.p 
-              className="text-lg text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto"
-              initial={{ opacity: 0, y: 20 }}
-              animate={sbosInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.8, delay: 0.4, ease: [0.4, 0, 0.2, 1] }}
-            >
-              Supporting diverse student communities across all colleges and
-              departments
-            </motion.p>
+            <div className="w-32 h-1 bg-neutral-300 dark:bg-neutral-600 mx-auto rounded-full" />
           </motion.div>
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
-            animate={sbosInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
+            animate={
+              sbosInView
+                ? { opacity: 1, scale: 1 }
+                : { opacity: 0, scale: 0.95 }
+            }
             transition={{ duration: 1.0, delay: 0.6, ease: [0.4, 0, 0.2, 1] }}
           >
             <InfiniteMovingCards
